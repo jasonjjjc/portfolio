@@ -5,12 +5,11 @@ export default function ContactModal() {
       <div className="flex justify-between">
         {/* this is the left half of the modal */}
         <div className="flex-col">
-          <Image />
+          <p>Image</p>
           <div className="flex-col">
             <p>Bella Bekanova</p>
             <p>Web Developer</p>
             <div className="flex-row">
-              <Image />
               <p>London, UK</p>
             </div>
           </div>

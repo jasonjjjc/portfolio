@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+"use client";
+import { useState } from "react";
+import ContactModal from "./ContactModal";
 
 export default function Footer() {
   const [showModal, setShowModal] = useState(false);
+  
   return (
     <div>
       <div className="userUpdate">
@@ -13,7 +16,7 @@ export default function Footer() {
           Contact
         </button>
       </div>
-      {showModal ? <p>useState works</p> : null}
+      {showModal ? <ContactModal/> : null}
     </div>
   );
 }
