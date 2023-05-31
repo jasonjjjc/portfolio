@@ -1,16 +1,26 @@
-import Image from "next/image";
-import Navbar from "../components/Navbar";
-import Projects from "../components/Projects";
 import Link from "next/link";
+import getAllProjects  from "/lib/getAllProjects";
 
-export default function Home() {
+export default async function Home() {
+  const projectsData = getAllProjects();
+  const projectsAll= await projectsData;
+  const projects = projectsAll.record;
+  console.log(projects.record)
+
   return (
     <>
-      <div className="flex-col justify-center items-center text-xl">
-        <p>Full stack developer based in the UK</p>
-        <Link href='project1'>Project 1 sample</Link>
-        <Projects />
-      </div>
+      <section className="flex-col justify-center items-center text-xl">
+        <h2>Full stack developer based in the UK</h2>
+        {projects.map((project) => {
+          return (
+            <>
+              <div key={project.id}>
+                <Link href={`/projects/${project.id}`}>{project.title}</Link>
+              </div>
+            </>
+          );
+        })}
+      </section>
     </>
   );
 }
