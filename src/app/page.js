@@ -1,26 +1,23 @@
-import Link from "next/link";
-import getAllProjects  from "/lib/getAllProjects";
+"use client";
+import { useState } from "react";
+import ContactModal from "../components/ContactModal";
+import Projects from "@/components/Projects";
 
 export default async function Home() {
-  const projectsData = getAllProjects();
-  const projectsAll= await projectsData;
-  const projects = projectsAll.record;
-  console.log(projects.record)
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <>
-      <section className="flex-col justify-center items-center text-xl">
-        <h2>Full stack developer based in the UK</h2>
-        {projects.map((project) => {
-          return (
-            <>
-              <div key={project.id}>
-                <Link href={`/projects/${project.id}`}>{project.title}</Link>
-              </div>
-            </>
-          );
-        })}
-      </section>
+    {showModal ? <ContactModal /> : <Projects />}
+      <div className="flex justify-center bg-green-500">
+        <button
+          className="border-2 border-gray-400 rounded-md m-3 pt-1 pb-1 pl-10 pr-10"
+          type="button"
+          onClick={() => {setShowModal(true); console.log("clicked")}}
+        >
+          Contact
+        </button>
+      </div>
     </>
   );
 }
