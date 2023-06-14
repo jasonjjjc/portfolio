@@ -9,6 +9,7 @@ export default async function Projects(data) {
   return (
     <>
       <main className="flex flex-col flex-1 overflow-y-auto text-xl">
+        <h2 className="text-center p-6">Full stack developer based in the UK</h2>
         <div className="flex flex-col">
           {projects.map((project) => (
             <ProjectButton
