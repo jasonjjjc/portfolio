@@ -1,13 +1,25 @@
 import Link from "next/link";
 
-export default function ProjectButton({ project }) {
+// ProjectButton component
+export default function ProjectButton({ id, title }) {
   return (
     <Link
-      className="border-2 border-gray-400 "
-      key={project.id}
-      href={`/projects/${project.id}`}
+      style={{
+        boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+        padding: "15px 20px",
+        margin: "5px auto",
+        borderRadius: "4px",
+        width: "80%",
+        display: "block",
+        textAlign: "left",
+        background: "#fff",
+        textDecoration: "none",
+        color: "#000",
+      }}
+      key={id}
+      href={`/projects/${id}`}
     >
-      {project.title}
+      {title}
     </Link>
   );
 }
